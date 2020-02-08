@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Alert
+{% endblock %}
+
+
+{% block main%}
+    <div class="alert alert-danger" role="alert">
+    ERROR: {{ message }} <br/>
+    </div>              
+    <a href="/{{ route }}">Click to go back</a>
+{% endblock %}

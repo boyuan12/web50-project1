@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Book Search
+{% endblock %}
+
+
+{% block main %}
+    <table>
+        <tr>
+            <th>ISBN</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Year</th>
+        </tr>
+        {% for answer in answers %}
+            <tr>
+                <td>{{ answer["isbn"] }}</td>
+                <td><a href="/bookpage?isbn={{ answer['isbn'] }}">{{ answer["title"] }}</a></td>
+                <td>{{ answer["author"] }}</td>
+                <td>{{ answer["year"] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

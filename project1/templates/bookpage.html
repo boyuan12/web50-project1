@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Book Search
+{% endblock %}
+
+
+{% block main %}
+    {% for answer in answers %}
+        <h3>Detailed Information:</h3>
+        <p>ISBN-10: {{ answer["isbn"] }} <br>
+        Title of the book: {{ answer["title"] }} <br>
+        Author: {{ answer["author"] }} <br>
+        Published Year: {{ answer["year"] }} <br>
+        Average Score (in Goodread): {{ average_rating }} <br>
+        Total rating (in Goodread): {{ total_rating }} </p>
+    {% endfor %}
+    <h3>Wanna Comment? Comment Below!</h3>
+    <form action="/review" method="post">
+        Your rating: (1-5)<input type="range" min="1" max="5" value="3" name="range"> <br>
+        Additional Comments: <textarea name="review"></textarea> <br>
+        <button type="submit">Submit Your Review</button>
+    </form>
+
+    <h3>Reviews Made by people in this site</h3>
+    {% for review in reviews %}
+        <p>rating: {{ review["range"] }}</p>
+        <p>comment: {{ review["review"] }}</p>
+        <hr>
+    {% endfor %}
+{% endblock %}
